@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class BaseTest {
     @BeforeAll
-    void beforeAll() {
+    static void beforeAll() {
         Configuration.browserSize = "2560x1440";
         Configuration.pageLoadStrategy = "eager";
     }

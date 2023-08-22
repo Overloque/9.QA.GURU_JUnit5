@@ -9,6 +9,13 @@ repositories {
     mavenCentral()
 }
 
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
     testImplementation (
             'com.codeborne:selenide:6.16.0',
@@ -17,5 +24,8 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    String tags = System.getProperty("tags") != null ? System.getProperty("tags") : "web"
+    useJUnitPlatform {
+        includeTags tags
+    }
 }
